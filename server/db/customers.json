@@ -1,0 +1,42 @@
+[
+  {
+    "name": "jonas",
+    "email": "jooonas@email.se",
+    "stripeCustomerId": "cus_OasetmHF0HpQU7"
+  },
+  {
+    "name": "olle",
+    "email": "ooolle@email.se",
+    "stripeCustomerId": "cus_OasfkRzrrjUHG1"
+  },
+  {
+    "name": "maja",
+    "email": "maja@email.se",
+    "stripeCustomerId": "cus_OasiJEQwsmkjCK"
+  },
+  {
+    "name": "gggg",
+    "email": "ggg@email.se",
+    "stripeCustomerId": "cus_Oask1yR6UMTLXW"
+  },
+  {
+    "name": "karl",
+    "email": "kalle@email.se",
+    "stripeCustomerId": "cus_OaslqZAT87SsSH"
+  },
+  {
+    "name": "emil",
+    "email": "eeem@email.se",
+    "stripeCustomerId": "cus_OasxofGLBbIjl7"
+  },
+  {
+    "name": "jonna",
+    "email": "jonna@email.se",
+    "stripeCustomerId": "cus_OasxZNp08bWJrE"
+  },
+  {
+    "name": "Sara",
+    "email": "sara@email.se",
+    "stripeCustomerId": "cus_Oat0hckAijXm6Q"
+  }
+]

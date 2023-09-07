@@ -1,0 +1,12 @@
+GET http://localhost:3000/customers/register
+
+###
+
+POST http://localhost:3000/customers/register
+Content-Type: application/json
+
+{
+    "name": "Sara",
+    "email": "sara@email.se"
+}
+
