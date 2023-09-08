@@ -103,5 +103,11 @@
     "name": "Sara4",
     "email": "sara4@email.se",
     "stripeCustomerId": "cus_ObDQ2lHWmUaMar"
+  },
+  {
+    "name": "Sara5",
+    "email": "sara5@email.se",
+    "password": "$2b$10$eFk5LjubEkR0hlPdl4Ve/.gguPeN26MKjE1qVC1lVVsPbgh89FLAC",
+    "stripeCustomerId": "cus_ObFV6UR7j6rDjo"
   }
 ]

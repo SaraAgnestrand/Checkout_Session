@@ -1,20 +1,25 @@
 const fs = require("fs");
+const bcrypt = require("bcrypt");
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 async function register (req, res) {
 
     try { 
+       
         const { name, email } = req.body;
-
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
         // Kolla om användaren redan finns i Stripe (baserat på e-postadress eller annan unik identifierare)
         const existingCustomer = await stripe.customers.list({ email: email });
-        if (existingCustomer.data.length > 0) {
+         if (existingCustomer.data.length > 0) {
             return res.status(409).json("Customer already exists.");
         }
         // Skapa en ny Stripe-kund med användarens e-postadress som identifierare
         const customer = await stripe.customers.create({
+
             name: name,
             email: email,
+            // password: hashedPassword,
         });
 
         console.log(customer)
@@ -35,6 +40,7 @@ async function register (req, res) {
             const newCustomer = {
             name: name,
             email: email,
+            password: hashedPassword,
             stripeCustomerId: customer.id
         };
 
