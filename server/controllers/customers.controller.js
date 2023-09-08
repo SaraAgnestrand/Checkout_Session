@@ -17,6 +17,8 @@ async function register (req, res) {
             email: email,
         });
 
+        console.log(customer)
+
         const filePath = "./db/customers.json";
 
         let existingCustomers = [];
@@ -44,11 +46,11 @@ async function register (req, res) {
 
 
         // Här kan du också spara användaruppgifter som metadata i Stripe-kunden
-        await stripe.customers.update(customer.id, {metadata: { name: name },
-        });
+        // await stripe.customers.update(customer.id, {metadata: { name: name },
+        // });
 
         // Nu har du skapat en ny användare i Stripe
-        // Du kan lägga till mer logik här om du behöver, som att hantera lösenord eller andra användaruppgifter
+        // Lägg logik för att hantera lösenord eller andra användaruppgifter
 
         res.status(201).json(customer);
     } catch (error) {
@@ -57,9 +59,9 @@ async function register (req, res) {
     }
 }
 
-
+//function loginAsCustomer
 module.exports = { register }
 
-// APIom hur man registrerar användare
+
  
 
