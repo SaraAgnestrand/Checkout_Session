@@ -1,16 +1,15 @@
-import React from "react"
-import {BrowserRouter, Routes, Route} from "react-router-dom"
-// import Home from ".components/Home";
+
+import Home from "./components/Home/Home"
+import Header from "./components/Header/Header"
 //Router för att kunna hoppa till våra olika url:er
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        
-       //lägga in alla route här
-      </Routes>
-    </BrowserRouter>
-  );
+    <div>
+      <Home />
+      < Header />
+    </div>
+    )
+ 
 }
 
 export default App
