@@ -2,6 +2,7 @@ const fs = require("fs");
 const bcrypt = require("bcrypt");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+const filePath = "./db/customers.json"; 
 
 async function register (req, res) {
 
@@ -24,7 +25,7 @@ async function register (req, res) {
 
         console.log(customer)
 
-        const filePath = "./db/customers.json";
+        
 
         let existingCustomers = [];
 
@@ -62,11 +63,39 @@ async function register (req, res) {
     } catch (error) {
         console.error("Fel vid registrering:", error);
         res.status(400).json(error.message);
+        
     }
 }
 
-//function loginAsCustomer
-module.exports = { register }
+
+async function login(req, res) {
+    // Check if username and password is correct
+    const dbCustomers = fs.readFileSync(filePath)
+    const customers = JSON.parse(dbCustomers)
+    console.log("body: " + req.body)
+    const existingCustomer = customers.find(customer => customer.email = req.body.email)
+    console.log("hej")
+    console.log(existingCustomer);
+    console.log(req.body);
+    
+    if (
+      !existingCustomer ||
+      !(await bcrypt.compare(req.body.password, existingCustomer.password))
+    ) {
+      return res.status(401).json("Wrong password or username");
+
+    }
+  
+    if (req.session.id) {
+      return res.status(200).json(existingCustomer);
+    }
+    // Save info about the user to the session (an encrypted cookie stored on the client)
+    req.session = existingCustomer;
+    res.status(200).json(existingCustomer);
+  }
+
+
+module.exports = { register, login  } //login
 
 
  

@@ -6,9 +6,17 @@ POST http://localhost:3000/api/customers/register
 Content-Type: application/json
 
 {
-    "name": "Sara5",
-    "email": "sara5@email.se",
+    "name": "andreas",
+    "email": "andreas@email.se",
     "password": "112233"
 }
 
+####
 
+POST http://localhost:3000/api/customers/login
+Content-Type: application/json
+
+{
+    "email": "andreas@email.se",
+    "password": "112233"   
+}
