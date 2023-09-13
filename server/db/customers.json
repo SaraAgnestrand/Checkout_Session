@@ -1,26 +1,8 @@
 [
   {
-    "name": "Sara44",
-    "email": "sara44@email.se",
-    "password": "$2b$10$twow9GccXIDil/JPPiDGKulnEYV4Wy3SUsvCwsLQjeGzBP3/iFhMy",
-    "stripeCustomerId": "cus_OcLQKAQD4E83e7"
-  },
-  {
-    "name": "Sara46",
-    "email": "sara46@email.se",
-    "password": "$2b$10$17hJu0xz0Ztp8mWyaxfjaOR9YCsyXbXPEj2ZzjInUPVaWA9/N5koK",
-    "stripeCustomerId": "cus_OcLVIzSF1EkIle"
-  },
-  {
-    "name": "elin12",
-    "email": "elin12@email.se",
-    "password": "$2b$10$aBKN/Lg4qoq6JPzXNNaKceh6Ar/Ni6fKqgHZPSM7s.5XQ8U9Ff1aG",
-    "stripeCustomerId": "cus_OcMgSDtmjdvKCa"
-  },
-  {
-    "name": "andreas",
-    "email": "andreas@email.se",
-    "password": "$2b$10$KXV7bRz1QZjiEaicrvMQ6uCBQRu0bIBTkUMo0mCaJHxmbxfgBqDxW",
-    "stripeCustomerId": "cus_OcMjEEBjnijjaZ"
+    "name": "amanda",
+    "email": "amanda@email.se",
+    "password": "$2b$10$Vf4H51LzEF1O0HlyUyBQoehCZNUqrk7AUxCrCinTMiRc7OMMesz7W",
+    "stripeCustomerId": "cus_Od5bb87NhvCQyz"
   }
 ]
