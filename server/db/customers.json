@@ -4,5 +4,11 @@
     "email": "amanda@email.se",
     "password": "$2b$10$Vf4H51LzEF1O0HlyUyBQoehCZNUqrk7AUxCrCinTMiRc7OMMesz7W",
     "stripeCustomerId": "cus_Od5bb87NhvCQyz"
+  },
+  {
+    "name": "Lovis",
+    "email": "lovis@email.se",
+    "password": "$2b$10$EmNHlrMG4y2Pe9CuurLE8OOcoz13bgUcToUSAOvozdkAr4JVMME4e",
+    "stripeCustomerId": "cus_Od90pgjapcdfwv"
   }
 ]
