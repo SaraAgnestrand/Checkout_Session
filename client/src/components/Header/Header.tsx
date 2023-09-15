@@ -1,10 +1,7 @@
 import "./Header.css"
 import { BsCart3 } from 'react-icons/bs';
-
 import { useNavigate } from 'react-router-dom';
  
-
-
 
 function Header() {
   // const { login } = useContext(CustomerContext)
@@ -19,13 +16,18 @@ function Header() {
     navigate('/login');
   };
 
+  const navigateToCart = () => {
+    // Use the navigate function to navigate to the "/registerform" route
+    navigate('/cart');
+  };
+
   return (
     <div className="header-content">
-        <h2 className="title">Header</h2>
+        <h2 className="title">BokSafari</h2>
         <div className="buttons-div">
         <button onClick={navigateToRegisterForm}>Registrera</button>
         <button onClick={navigateToLogin}>Logga in</button>
-        <BsCart3/>
+        <div onClick={navigateToCart}><BsCart3/></div>
         </div>
         
     </div>

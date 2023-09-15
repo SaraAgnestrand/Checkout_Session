@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import "./Home.css";
-
+interface IProduct {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  images: string;
+}
 
 async function fetchProducts() {
   try {
@@ -22,13 +28,7 @@ async function fetchProducts() {
 
 function Home() {
 
-    interface IProduct {
-        id: string;
-        name: string;
-        price: number;
-        description: string;
-        images: string;
-      }
+   
       const [products, setProducts] = useState<IProduct[]>([]);
       console.log("hejsan")
   useEffect(() => {
@@ -41,14 +41,17 @@ function Home() {
   }, []);
 
   return (
+   
     <div className="main-content">
       {products.map((product) => (
-        <div key={product.id}>
-          <img src={product.images} alt={product.name} />
-          <h1>{product.name}</h1>
-          <h3>{product.price}</h3>
-          <p>{product.description}</p>
-          <button>Köp</button>
+        <div className="product-div">
+          <div key={product.id}>
+            <img src={product.images} alt={product.name} />
+            <h1>{product.name}</h1>
+            <h3>{product.price}</h3>
+            <p>{product.description}</p>
+            <button>Köp</button>
+          </div>
         </div>
       ))}
     </div>

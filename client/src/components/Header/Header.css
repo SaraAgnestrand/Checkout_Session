@@ -3,15 +3,38 @@ body{
     padding:0;
     box-sizing: border-box;
 }
-
-.header-content{
-    display: flex;
-    background-color: pink;
-}
-
-
-
-.buttons-div{
     
-    
-}
+    /* background-color: #3D5962; */
+    /* background-color: #517682; */
+    /* background-color: #496B75; */
+    /* color:rgb(53, 52, 52);  */
+   
+
+    .header-content {
+        display: flex;
+        justify-content: space-between; /* Låter elementen fördela sig längs hela horisontella utrymmet */
+        align-items: center; /* Centrera elementen vertikalt */
+        padding: 10px;
+        height: 10rem;
+        background-color: #496B75; /* Lägg till önskad bakgrundsfärg */
+        color: rgb(53, 52, 52); 
+        /* Lägg till önskad textfärg */
+      }
+      
+      .title {
+        margin: 0;
+         font-weight: 700;
+         font-size:xx-large 
+      }
+      
+      .buttons-div {
+        display: flex;
+        gap: 10px; /* Avstånd mellan knapparna och ikonen */
+      }
+      
+      button {
+        /* Anpassa knapparnas utseende här */
+      }
+      
+      /* Styla ikonen här, till exempel ändra dess färg och storlek */
+  
