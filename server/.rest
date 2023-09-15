@@ -11,7 +11,7 @@ Content-Type: application/json
     "password": "112233"
 }
 
-####
+###
 
 POST http://localhost:3000/api/customers/login
 Content-Type: application/json
@@ -20,3 +20,9 @@ Content-Type: application/json
     "email": "amanda@email.se",
     "password": "112233"   
 }
+
+###
+
+GET http://localhost:3000/api/products
+
+###

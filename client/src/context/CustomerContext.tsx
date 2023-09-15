@@ -16,6 +16,7 @@ export interface Credentials {
     login: (credentials: Credentials) => void,
     registerCustomer: (credentiels:ICustomer) => void
 }
+
 export const CustomerContext = createContext<CustomerContext>(null as any)
 function CustomerProvider({ children }: PropsWithChildren) {
 

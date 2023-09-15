@@ -1,4 +1,6 @@
 import "./Header.css"
+import { BsCart3 } from 'react-icons/bs';
+
 import { useNavigate } from 'react-router-dom';
  
 
@@ -23,6 +25,7 @@ function Header() {
         <div className="buttons-div">
         <button onClick={navigateToRegisterForm}>Registrera</button>
         <button onClick={navigateToLogin}>Logga in</button>
+        <BsCart3/>
         </div>
         
     </div>
