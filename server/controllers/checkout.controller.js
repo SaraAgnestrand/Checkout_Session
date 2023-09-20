@@ -3,10 +3,11 @@ const CLIENT_URL = "http://localhost:5173"
 
 async function checkout (req, res) {
     try {
+        console.log(req.body)
         const session = await stripe.checkout.sessions.create({
-            line_items: req.body.map(item => {
+            line_items: req.body.map(item => { 
                 return {
-                    price: item.product,
+                    price: item.id,   
                     quantity: item.quantity,
                 }
             }),
@@ -16,7 +17,8 @@ async function checkout (req, res) {
         });
         res.status(200).json({ url: session.url })
     } catch (error) {
-        console.log(error.message);
+        console.log("hej")
+        console.log(error);
         res.status(400).json("Det gick inte så bra")
     }
 }

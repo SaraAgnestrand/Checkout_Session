@@ -1,0 +1,18 @@
+
+.form-container {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; /* Centrerar innehållet vertikalt */
+    height: 100vh; /* Använd hela visningshöjden för centrerat innehåll */
+    flex-direction: column; /* Lägger innehållet i en kolumn */
+}
+  
+  /* Styla dina inmatningsfält och knappar efter behov */
+  
+  input {
+    margin-bottom: 10px; /* Lägg till lite mellanrum mellan inmatningsfälten */
+  }
+  
+  button {
+    /* Styla dina knappar, t.ex. bakgrundsfärg, textfärg, padding, etc. */
+  }

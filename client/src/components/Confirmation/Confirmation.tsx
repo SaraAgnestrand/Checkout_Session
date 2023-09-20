@@ -1,8 +1,11 @@
-
+import "./Confirmation.css"
 
 function Confirmation() {
   return (
-    <div>Tack för ditt köp</div>
+    <div className="confirmation-div">
+      <h3>Tack för ditt köp, </h3> 
+       <h3> välkommen åter!</h3>
+    </div>
     
   )
 }

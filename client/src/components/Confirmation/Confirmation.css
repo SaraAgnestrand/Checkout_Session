@@ -1,0 +1,8 @@
+.confirmation-div {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; /* Centrerar innehållet vertikalt */
+     /* Använd hela visningshöjden för centrerat innehåll */
+    flex-direction: column; /* Lägger innehållet i en kolumn */
+    color:rgb(52, 52, 52);
+}
