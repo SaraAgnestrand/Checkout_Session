@@ -1,11 +1,32 @@
+import {useState, useEffect} from "react"
 import "./Confirmation.css"
 
 function Confirmation() {
+
+const [ isPaymentVerified, setIsPaymentVerified] = useState(false)
+
+useEffect ( () => {
+  const sessionId = localStorage.getItem("session.id") 
+  const verifyPayment = async () => {
+    const response = await fetch("http://localhost:3000/api/checkout/verify-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(sessionId),
+    }); 
+  }
+
+  verifyPayment()
+}, [])
+
+
+
   return (
-    <div className="confirmation-div">
+    isPaymentVerified ? <div className="confirmation-div">
       <h3>Tack för ditt köp, </h3> 
        <h3> välkommen åter!</h3>
-    </div>
+    </div>: <h3>Något gick fel</h3>
     
   )
 }

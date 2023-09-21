@@ -45,8 +45,10 @@ function Cart() {
     if (!response.ok) {
       return;
     }
-    const { url } = await response.json();
+    const { url, sessionId } = await response.json();
+    localStorage.setItem("session-id", sessionId)
     window.location = url;
+    console.log("Redirecting to checkout:", url);
   }
 
   return (
