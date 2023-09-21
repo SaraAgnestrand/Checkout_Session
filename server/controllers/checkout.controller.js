@@ -24,7 +24,17 @@ async function checkout (req, res) {
 }
 
 async function verify(req, res){
-
+    try{
+        //retrieve session from stripe
+    const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);
+    if (!session.payment_status !="paid")
+    {res.status(400).json({ verified: false })
+    }
+    
+    res.status(200).json({verified:true});
+    }catch (error){
+        console.log(error.message); 
+    }
 }
 
 module.exports = { checkout, verify }
