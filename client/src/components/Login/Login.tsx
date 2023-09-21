@@ -4,17 +4,22 @@ import "./Login.css"
 
 
 function Login() {
-const {login} = useContext(CustomerContext)
+const context = useContext(CustomerContext)
+
 const [ email, setEmail] = useState("")
 const [password, setPassword] = useState("")
 
+const handleLogin = () => {
+  if (!!context && !!context.login)
+    context.login({ email, password });
+};
 
   return (
   <div className="login-form">
     <h2>Logga in</h2>
     <input value= {email} onChange={ (e)=>setEmail(e.target.value)} type="text" placeholder="Email"required></input>
     <input value= {password} onChange={ (e)=>setPassword(e.target.value)}type="password" placeholder="Password" required></input>
-    <button onClick={()=>login({email, password})}>Logga in</button>
+    <button onClick={handleLogin}>Logga in</button>
   </div>
   )
 }

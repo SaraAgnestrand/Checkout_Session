@@ -1,5 +1,5 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export interface ICustomer {
     name: string,
@@ -12,16 +12,23 @@ export interface Credentials {
   }
 
 
- interface  CustomerContext{
-    login: (credentials: Credentials) => void,
-    registerCustomer: (credentiels:ICustomer) => void
+//  interface  CustomerContext{
+//     login: (credentials: Credentials) => void,
+//     registerCustomer: (credentiels:ICustomer) => void
+//     loggedinCustomer: ICustomer | null;
+// }
+interface CustomerContext {
+  login: (credentials: Credentials) => void;
+  registerCustomer: (credentials: ICustomer) => void;
+  loggedinCustomer: ICustomer | null;
 }
+export const CustomerContext = createContext<CustomerContext | null>(null);
 
-export const CustomerContext = createContext<CustomerContext>(null as any)
+// export const CustomerContext = createContext<CustomerContext>(null as any)// 
 function CustomerProvider({ children }: PropsWithChildren) {
 
     const [loggedinCustomer, setLoggedinCustomer] = useState(null)
- 
+    const navigate = useNavigate();
     
 async function registerCustomer(credentials:ICustomer) {
   try {
@@ -59,12 +66,7 @@ async function login(credentials: Credentials) {
         const customer = await res.json()
         console.log("Inloggning lyckades. Serverrespons:", res);
         setLoggedinCustomer(customer);
-        // const navigate = useNavigate();
-        // const navigateToHome = () => {
-
-        //   navigate('/');
-        // };
-
+        navigate('/');
       }
     
       } catch (error) {
@@ -73,7 +75,7 @@ async function login(credentials: Credentials) {
   }
 
 return(
-    <CustomerContext.Provider value= {{ login, registerCustomer  }}>  
+  <CustomerContext.Provider value={{ login, registerCustomer, loggedinCustomer }}>  
         {children} 
     </CustomerContext.Provider>
 )

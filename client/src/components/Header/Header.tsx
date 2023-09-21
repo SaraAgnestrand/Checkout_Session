@@ -33,7 +33,7 @@ function Header() {
       navigate('/');
     } else {
       // Om inget matchande val hittas
-      console.log('Okänd destination');
+      console.log('Sidan finns inte.');
     }
   };
 
