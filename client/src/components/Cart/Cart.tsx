@@ -41,12 +41,19 @@ function Cart(){
         const { url } = await response.json()
         window.location = url;
     }
-  return (
-    <div>
-        <h2>Kundkorg:</h2>
-        <button onClick={handlePayment}>Betala</button>
-    </div>
+    return (
+        <div className="cart-div">
+            <h1>Kundkorg:</h1>
+            {cart.map((item) => (
+            <div className="cart-card" key={item.id}>
+                <h3>Antal: {item.quantity}</h3>
+            </div>
+            ))}
+            <button onClick={handlePayment}>Gå till kassa</button>
+        </div>
   )
 }
 
+
+//   );
 export default Cart

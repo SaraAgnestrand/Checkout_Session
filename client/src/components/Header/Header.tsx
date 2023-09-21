@@ -1,11 +1,27 @@
-import "./Header.css"
+import { useState, useEffect } from "react";
 import { BsCart3 } from 'react-icons/bs';
 // import { NavLink } from "react-router-dom";
+import { ICart } from "../Home/Home";
 import { useNavigate } from 'react-router-dom';
+import "./Header.css"
  
 
+
 function Header() {
+  
+    // Skapa en state för att lagra antalet produkter i kundvagnen
+    const [cartCount, setCartCount] = useState<number>(0);
+
+    // Hämta kundvagnsdata från localStorage och uppdatera cartCount när komponenten mountas
+    useEffect(() => {
+      const cartDataFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]") as ICart[];
+      const totalCount = cartDataFromLocalStorage.reduce((count, item) => count + item.quantity, 0);
+      setCartCount(totalCount);
+    }, []);
+  
   const navigate = useNavigate();
+
+  // const navigate = useNavigate();
   const handleNavigation = (destination: string) => {
     if (destination === 'registerform') {
       navigate('/registerform');
@@ -30,7 +46,7 @@ function Header() {
             <button onClick={() => handleNavigation('login')}>Logga in</button>
           </div>
           <div className="cart-icon"onClick={() => handleNavigation('cart')}><BsCart3/>
-            <p className="cart-number">0</p>
+            <p className="cart-number">{cartCount}</p>
           </div>
         </div>
     </div>

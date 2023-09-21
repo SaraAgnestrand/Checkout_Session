@@ -14,6 +14,7 @@ async function checkout (req, res) {
             mode: "payment",
             success_url: `${CLIENT_URL}/confirmation`,
             cancel_url: CLIENT_URL,
+            allow_promotion_codes: true
         });
         res.status(200).json({ url: session.url })
     } catch (error) {

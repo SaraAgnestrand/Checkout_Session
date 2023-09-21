@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Cart from "../Cart/Cart";
+// import Cart from "../Cart/Cart";
 import "./Home.css";
 
 
@@ -15,7 +15,7 @@ interface IProduct {
   default_price: IPrice;
 }
 // Skapa ett nytt interface för kundvagnsposten
-interface ICart {
+ export interface ICart {
   id: string;
   quantity: number;
 }
@@ -69,8 +69,8 @@ function Home() {
       setCart([...cart, { id: product.default_price.id, quantity: 1 }]);
 
       localStorage.setItem("cart", JSON.stringify([...cart, { id: product.default_price.id, quantity: 1 }]))
-      
     }
+    
   };
   console.log("Products:", products);
   console.log("Cart:", cart);

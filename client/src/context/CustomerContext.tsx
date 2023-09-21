@@ -1,5 +1,5 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
-
+// import { useNavigate } from 'react-router-dom';
 
 export interface ICustomer {
     name: string,
@@ -59,6 +59,12 @@ async function login(credentials: Credentials) {
         const customer = await res.json()
         console.log("Inloggning lyckades. Serverrespons:", res);
         setLoggedinCustomer(customer);
+        // const navigate = useNavigate();
+        // const navigateToHome = () => {
+
+        //   navigate('/');
+        // };
+
       }
     
       } catch (error) {
