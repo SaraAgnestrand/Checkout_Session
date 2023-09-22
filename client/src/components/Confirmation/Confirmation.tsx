@@ -6,17 +6,31 @@ function Confirmation() {
 const [ isPaymentVerified, setIsPaymentVerified] = useState(false)
 
 useEffect ( () => {
-  const sessionId = localStorage.getItem("session.id") 
+  const sessionId = localStorage.getItem("session-id") 
   const verifyPayment = async () => {
     const response = await fetch("http://localhost:3000/api/checkout/verify-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(sessionId),
+      body: JSON.stringify({sessionId}),
     }); 
-  }
+    if (!response.ok) {
+      throw new Error("Något gick fel med anropet till servern.");
+    }
+    const {verified} = await response.json()
+    if(verified) {
+      setIsPaymentVerified(true)
+      localStorage.removeItem("session-id")
+      localStorage.removeItem("cart")
 
+    } else {
+
+      setIsPaymentVerified(false)
+
+    }
+  
+  }
   verifyPayment()
 }, [])
 
