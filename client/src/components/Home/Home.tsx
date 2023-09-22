@@ -14,7 +14,6 @@ interface IProduct {
   images: string;
   default_price: IPrice;
 }
-// Skapa ett nytt interface för kundvagnsposten
  export interface ICart {
   id: string;
   quantity: number;
@@ -65,20 +64,15 @@ function Home() {
       setCart(updatedCart);
       localStorage.setItem("cart",JSON.stringify(updatedCart))
     } else {
-     
       setCart([...cart, { id: product.default_price.id, quantity: 1 }]);
-
       localStorage.setItem("cart", JSON.stringify([...cart, { id: product.default_price.id, quantity: 1 }]))
     }
-    
   };
   console.log("Products:", products);
   console.log("Cart:", cart);
 
 return (
-   
-    <div className="main-content">
-        
+    <div className="main-content">  
       {products.map((product) => (  
           <div className="product-item" key={product.id}>
             <img src={product.images} alt={product.name} />
@@ -87,14 +81,9 @@ return (
               <h5>{product.default_price.unit_amount/100} kr</h5>
             </div>
             <p>{product.description}</p>
-            
             <button className="buy-button" onClick={() => { addToCart(product);  }}>Köp</button>
-            
           </div>
-          
       ))}
-
-      
     </div>
   );
 }

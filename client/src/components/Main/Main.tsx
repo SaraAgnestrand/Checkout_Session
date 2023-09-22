@@ -25,8 +25,6 @@ function Main() {
       </CustomerProvider>
       </div>
     </Router>
-    
-  
 );
  
 }

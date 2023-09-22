@@ -5,8 +5,8 @@ import App from './App.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* <CustomerProvider> */}
+    
     <App />
-    {/* </CustomerProvider> */}
+    
   </React.StrictMode>,
 )

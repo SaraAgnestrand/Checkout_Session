@@ -18,7 +18,7 @@ async function register (req, res) {
             name: name,
             email: email,
         });
-
+        
         let existingCustomers = [];
         if(fs.existsSync(filePath)) {
             const fileData = fs.readFileSync(filePath, "utf8");

@@ -5,7 +5,6 @@ import "./Login.css"
 
 function Login() {
 const context = useContext(CustomerContext)
-
 const [ email, setEmail] = useState("")
 const [password, setPassword] = useState("")
 

@@ -10,5 +10,11 @@
     "email": "lovis@email.se",
     "password": "$2b$10$EmNHlrMG4y2Pe9CuurLE8OOcoz13bgUcToUSAOvozdkAr4JVMME4e",
     "stripeCustomerId": "cus_Od90pgjapcdfwv"
+  },
+  {
+    "name": "Erik",
+    "email": "erik@email.se",
+    "password": "$2b$10$SnlXai.f81fV/nRnQz./mOYgGOnq5bCpYd6bQMpRjdUEseIf4Tp6i",
+    "stripeCustomerId": "cus_OgVwmNGTGVb0x8"
   }
 ]

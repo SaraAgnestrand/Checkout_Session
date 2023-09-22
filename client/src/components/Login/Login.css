@@ -1,17 +1,12 @@
 .login-form {
     display: flex;
     justify-content: flex-start; 
-    align-items: center; /* Centrerar innehållet vertikalt */
-    height: 100vh; /* Använd hela visningshöjden för centrerat innehåll */
-    flex-direction: column; /* Lägger innehållet i en kolumn */
+    align-items: center; 
+    height: 100vh; 
+    flex-direction: column; 
 }
   
-  /* Styla dina inmatningsfält och knappar efter behov */
-  
   input {
-    margin-bottom: 10px; /* Lägg till lite mellanrum mellan inmatningsfälten */
+    margin-bottom: 10px; 
   }
   
-  button {
-    /* Styla dina knappar, t.ex. bakgrundsfärg, textfärg, padding, etc. */
-  }

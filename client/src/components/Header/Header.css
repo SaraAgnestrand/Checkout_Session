@@ -23,8 +23,7 @@ body{
     cursor: pointer;
 }
       
-.buttons-div {
-        
+.buttons-div { 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,9 +33,9 @@ body{
 
 button {
     cursor: pointer;
-    /* border-radius: 10px; */
     height: 1.5rem;
 }
+
 .two-buttons-div{
   display: flex;
   justify-content: center;
@@ -64,5 +63,4 @@ button {
     border-radius: 50%;
     margin: -10px;
     margin-bottom: 13px;
-
 }

@@ -1,5 +1,8 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+const fs = require("fs");
+const filePath = "./db/orders.json"; 
 const CLIENT_URL = "http://localhost:5173"
+
 
 async function checkout (req, res) {
     try {
@@ -23,16 +26,21 @@ async function checkout (req, res) {
     }
 }
 
-
 async function verify(req, res) {
     try {
         const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);
          if(session.payment_status != "paid") {
              return res.status(400).json({ verified: false });
          }
- 
          const line_items = await stripe.checkout.sessions.listLineItems(req.body.sessionId);
- 
+         let existingOrders = [];
+         if(fs.existsSync(filePath)) {
+             const fileData = fs.readFileSync(filePath, "utf8");
+             existingOrders = JSON.parse(fileData);
+         }
+         if (!Array.isArray(existingOrders)) {
+            existingOrders = [];
+         }
          const order = {
              created: session.created,
              customer: session.customer_details.name,
@@ -42,56 +50,18 @@ async function verify(req, res) {
                      product: item.description,
                      quantity: item.quantity,
                      price: item.price.unit_amount/100,
-                 }
+                 };
              })
          }
-
          console.log("ORDER", order)
- 
-         // HÄR SKA VI SPARA ORDERN OCH SKICKA DEN VIDARE TIL JSON
- 
+         existingOrders.push(order);
+         const jsonData = JSON.stringify(existingOrders, null, 2);
+         fs.writeFileSync(filePath, jsonData) 
         res.status(200).json({ verified: true });
- 
-  
- 
     } catch (error) {
- 
         console.log(error.message);
- 
         res.status(500).json({ error: "Ett fel uppstod vid behandling av ordern." });
- 
     }
 }
-
-// async function verify(req, res){
-//     try{
-//     //retrieve session from stripe
-//     const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);//expanda eller (populate)
-//     if (!session.payment_status !="paid"){
-//         return res.status(400).json({ verified: false })
-//     }
-
-//     const line_items= await stripe.checkout.sessions.listLineItems(req.body.sessionId)
-
-//     const order = {
-//         created: session.created,
-//         customer: session.customer_details.name,
-//         email: session.customer_details.email,
-//         products: line_items.data.map(item => {
-//             return {
-//                 product: item.description,
-//                 quantity: item.quantity,
-//                 price: item.price.unit_amount /100 * item.quantity,
-//             }
-//         })
-//     };
-//         console.log("ORDER", order);
-
-//     res.status(200).json({verified:true});
-//     }catch (error){
-//         console.log(error.message); 
-//     }
-// }
-
 
 module.exports = { checkout, verify }

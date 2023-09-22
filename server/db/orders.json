@@ -1,0 +1,60 @@
+[
+  {
+    "created": 1695375973,
+    "customer": "amanda",
+    "email": "amanda@email.se",
+    "products": [
+      {
+        "product": "Förrädaren",
+        "quantity": 1,
+        "price": 139
+      },
+      {
+        "product": "Giftiga fakta",
+        "quantity": 1,
+        "price": 99
+      }
+    ]
+  },
+  {
+    "created": 1695375973,
+    "customer": "amanda",
+    "email": "amanda@email.se",
+    "products": [
+      {
+        "product": "Förrädaren",
+        "quantity": 1,
+        "price": 139
+      },
+      {
+        "product": "Giftiga fakta",
+        "quantity": 1,
+        "price": 99
+      }
+    ]
+  },
+  {
+    "created": 1695387505,
+    "customer": "erik",
+    "email": "erik@email.se",
+    "products": [
+      {
+        "product": "Blodiga fakta",
+        "quantity": 1,
+        "price": 99
+      }
+    ]
+  },
+  {
+    "created": 1695387505,
+    "customer": "erik",
+    "email": "erik@email.se",
+    "products": [
+      {
+        "product": "Blodiga fakta",
+        "quantity": 1,
+        "price": 99
+      }
+    ]
+  }
+]

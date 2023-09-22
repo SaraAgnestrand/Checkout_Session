@@ -8,7 +8,7 @@ const checkoutRouter = require("./routes/checkout.router")
 const cookieSession = require("cookie-session");
 const app = express();
 
-//Middlewares 
+
 app.use(
     cors({
         origin: "*",

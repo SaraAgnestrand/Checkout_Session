@@ -28,16 +28,5 @@ GET http://localhost:3000/api/products
 ###
 
 
-POST http://localhost:3000/api/checkout/create-checkout-session
-Content-Type: application/json
 
-{
- "line_items": [
-    {
-    "price_data":"price_1NmtJMJDRcPWyxwdUbdAjhvQ",
-    "quantity": 2
-    
-}
- ]   
-}
 

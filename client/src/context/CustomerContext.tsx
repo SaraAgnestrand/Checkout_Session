@@ -10,13 +10,6 @@ export interface Credentials {
     email: string,
     password: string
   }
-
-
-//  interface  CustomerContext{
-//     login: (credentials: Credentials) => void,
-//     registerCustomer: (credentiels:ICustomer) => void
-//     loggedinCustomer: ICustomer | null;
-// }
 interface CustomerContext {
   login: (credentials: Credentials) => void;
   registerCustomer: (credentials: ICustomer) => void;
@@ -24,7 +17,6 @@ interface CustomerContext {
 }
 export const CustomerContext = createContext<CustomerContext | null>(null);
 
-// export const CustomerContext = createContext<CustomerContext>(null as any)// 
 function CustomerProvider({ children }: PropsWithChildren) {
 
     const [loggedinCustomer, setLoggedinCustomer] = useState(null)
@@ -45,7 +37,6 @@ async function registerCustomer(credentials:ICustomer) {
       console.log("Inloggning lyckades. Serverrespons:", res);
       setLoggedinCustomer(customer);
     }
-  
     } catch (error) {
       console.log(error);
   }
